@@ -3,27 +3,27 @@ import { Avatar } from '@mui/material'
 import { ChatBubbleOutline, FavoriteBorder, PublicOutlined, Repeat, VerifiedUser } from '@mui/icons-material'
 import './Post.css'
 
-const Post = () => {
+const Post = ({ displayName, username, verified, text, image, avatar }) => {
   return (
     <div className='post'>
         <div className='post_avatar'>
-          <Avatar />
+          <Avatar src={avatar}/>
         </div>
         <div className='post_body'>
             <div className='post_header'>
                 <div className='post_header_text'>
-                    <h3>チュートリアル
+                    <h3>{displayName}
                         <span className='post_header_special'>
                             <VerifiedUser className='post_badge'/>
-                            @masaki
+                            {username}
                         </span>
                     </h3>
                 </div>
                 <div className='post_header_description'>
-                    <p>reactなう。</p>
+                    <p>{text}</p>
                 </div>
             </div>
-            <img src="https://source.unsplash.com/random"/>
+            <img src={image} alt="" />
             <div className='post_footer'>
                 <ChatBubbleOutline fontSize='small' />
                 <Repeat fontSize='small' />
